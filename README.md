@@ -38,7 +38,7 @@ Minigroup notifications. Set up this command as a daily
 Originally the solution was to use any email account accessible via
 POP3, but Gmail's POP3 server behaves idiosyncratically, so this
 solution probably won't work very well with other services out-of-the-box.
-However, it would be too hard to add support for more services, either.
+However, it wouldn't be too hard to add support for more services, either.
 
 ## License
 
