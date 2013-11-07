@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>{{subject}}</title>
+<h1>{{subject}}</h1>
+{{#posts}}
+  <h2>{{subject}}</h2>
+  <h3>
+    <img src="{{{minigroup.thumbnailURL}}}" width="40" height="40">
+    {{minigroup.from}}
+  </h3>
+  {{{minigroup.html}}}
+  <p><a href="{{{minigroup.viewURL}}}">View on Minigroup</a></p>
+{{/posts}}
+{{^posts}}
+  <p>No posts were made today.</p>
+{{/posts}}

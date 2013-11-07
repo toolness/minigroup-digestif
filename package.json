@@ -1,0 +1,18 @@
+{
+  "name": "minigroup-digestif",
+  "version": "0.0.1",
+  "description": "Package Minigroup notifications into digest form.",
+  "dependencies": {
+    "cheerio": "~0.12.3",
+    "mailparser": "~0.3.6",
+    "mustache": "~0.7.3",
+    "nodemailer": "~0.5.5",
+    "poplib": "~0.1.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Atul Varma <varmaa@gmail.com>",
+  "license": "BSD-2-Clause"
+}
