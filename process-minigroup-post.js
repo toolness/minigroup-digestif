@@ -1,6 +1,6 @@
 var cheerio = require('cheerio');
 
-var SUBJECT_MATCH = /^(?:Re\: )?(.*) — (.+)$/;
+var SUBJECT_MATCH = /^(?:Re\: |You’re invited to attend )?(.*) — (.+)$/;
 
 function processMinigroupPost(mail) {
   if (mail.from[0].address == 'notification@minigroupmail.com') {
@@ -8,6 +8,7 @@ function processMinigroupPost(mail) {
     var subjectMatch = mail.subject.match(SUBJECT_MATCH);
 
     mail.minigroup = {
+      subject: mail.subject,
       from: mail.from[0].name.split(' via Minigroup')[0],
       thumbnailURL: $('img.thumb').attr('src'),
       html: $('div.formatted').html()

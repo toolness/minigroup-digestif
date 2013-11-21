@@ -25,19 +25,25 @@ client.on('connect', function() { client.login(USERNAME, PASSWORD); });
 client.on('login', function(status) {
   if (!status) throw new Error('login failed');
 
-  var posts = [];
+  var threads = {};
   var rawMessages = new MessageStream(client);
   var parsedMail = new MailParsingStream();
 
   rawMessages.pipe(parsedMail);
   parsedMail.on('data', function(data) {
     processMinigroupPost(data);
-    if (data.minigroup)
-      posts.push(data);
+    if (data.minigroup) {
+      var subject = data.minigroup.subject;
+      if (!(subject in threads))
+        threads[subject] = [];
+      threads[subject].push(data);
+    }
   });
   parsedMail.on('end', function() {
     var html = Mustache.render(TEMPLATE, {
-      posts: posts,
+      threads: Object.keys(threads).map(function(subject) {
+        return {subject: subject, posts: threads[subject]};
+      }),
       subject: SUBJECT
     });
     var smtp = nodemailer.createTransport("SMTP", {
