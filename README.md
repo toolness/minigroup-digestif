@@ -21,7 +21,12 @@ You'll want to define the following environment variables:
   `minigroupdigestif@gmail.com`.
 * `PASSWORD` is the password for the Gmail account.
 * `RECIPIENTS` is the comma-separated list of email addresses to
-  send digests to.
+  send digests to. If undefined, no email will be sent.
+* `POST_URL` is an optional URL to send the HTML content of the digest
+  to. If authentication credentials are specified in the URL, they
+  will be used for HTTP basic/digest authentication. The POST body
+  will consist of a single parameter, `html`, which contains the
+  HTML content of the digest.
 
 Additionally, for testing purposes you can define the `DRY_RUN` 
 environment variable to an empty string, in which case messages

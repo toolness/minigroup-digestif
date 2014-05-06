@@ -4,6 +4,7 @@
   "description": "Package Minigroup notifications into digest form.",
   "dependencies": {
     "cheerio": "~0.12.3",
+    "request": "2.34.0",
     "mailparser": "~0.3.6",
     "mustache": "~0.7.3",
     "nodemailer": "~0.5.5",
